@@ -1,33 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+//stylesheet
+import 'normalize.css'
 import './App.css'
 
+//fonts
+import "./font/Tormenta20x.ttf"
+import "./font/DanteMTStd-BoldItalic.otf"
+
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+        <div className="app">
+            <div className="banner">
+                <div className="right">
+                    Exit
+                </div>
+                <div className="left">
+                    <text> Character Vault</text>
+                </div>
+            </div>
+            <div className="front-page">
+                <div className="intro">
+                    <p>
+                    sejam as grandes jornadas cheias de sangue, suor e lágrimas, sejam os pequenos contos
+                    Bem vindo ao Character Vault Aventureiro! O lugar para você armazenar as sua histórias,
+                    de viajantes cheios bravata e potencial ou até mesmo aquelas não escritas ainda, que
+                     aguardam seu momento para tingir o papel. Aceitamos de tudo!
+                    </p>
+                </div>
+                <div className="content">
+                    <p>tecto</p>
+                </div>
+
+            </div>
+        </div>
     </>
   )
 }
