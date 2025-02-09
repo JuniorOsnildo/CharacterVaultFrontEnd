@@ -1,3 +1,8 @@
+
+:root{
+  --papyrus: #c99868;
+}
+
 .app{
   background-image: url("public/bg.jpg");
   background-repeat: no-repeat;
@@ -12,7 +17,7 @@
 .banner{
   position: absolute; top: 0;
   width: 100vw;
-  background-color: #c99868;
+  background-color: var(--papyrus);
   color: white;
   height: 10vh;
 
@@ -38,7 +43,7 @@
   height: 100vh;
   padding: 30px;
   border-radius: 10px;
-  background-color: #c99868;
+  background-color: var(--papyrus);
 
   .intro{
     color: darkred;

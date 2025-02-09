@@ -1,12 +1,12 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-export default function Modal({isOpen}) {
+export default function Modal({isOpen,setModalOpen}: ModalProps) {
 
     if (isOpen) {
         return (
             <div className="background">
                 <div className="container">
-                    teste
+                    <button onClick={setModalOpen}></button>
                 </div>
             </div>
         )

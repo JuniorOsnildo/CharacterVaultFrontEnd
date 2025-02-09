@@ -1,4 +1,7 @@
 .background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
@@ -6,6 +9,23 @@
     left: 0;
     right: 0;
     bottom: 0;
+
 }
 
-.background
+.container {
+    width: 900px;
+    height: 500px;
+    border-radius: 10px;
+    background-color: var(--papyrus);
+}
+
+button {
+    width: 20px;
+    height: 20px;
+    background: url(src/assets/x.png) center;
+    background-size: cover;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}

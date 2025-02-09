@@ -41,7 +41,7 @@ function App() {
                     <p>
                         <button onClick={() => setOpenModal(true)} className="addButton"></button>
                     </p>
-                    <Modal isOpen={openModal}></Modal>
+                    <Modal isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}></Modal>
                 </div>
 
             </div>
