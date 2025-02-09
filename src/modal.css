@@ -19,6 +19,22 @@
     background-color: var(--papyrus);
 }
 
+.button-x{
+    float:  right;
+}
+
+.fields{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    padding-left: 10px;
+
+    input{
+        width: 200px;
+        height: 40px;
+    }
+}
+
+
 button {
     width: 20px;
     height: 20px;

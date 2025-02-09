@@ -23,7 +23,7 @@
 
   .right{
     display: inline-block;
-    position: absolute; right: 0;
+    float: right;
     padding-right: 30px;
     font-family: TormentMin, serif;
     font-size: 35px;

@@ -31,17 +31,16 @@ function App() {
             <div className="front-page">
                 <div className="intro">
                     <p>
-                    sejam as grandes jornadas cheias de sangue, suor e lágrimas, sejam os pequenos contos
-                    Bem vindo ao Character Vault Aventureiro! O lugar para você armazenar as sua histórias,
-                    de viajantes cheios bravata e potencial ou até mesmo aquelas não escritas ainda, que
-                     aguardam seu momento para tingir o papel. Aceitamos de tudo!
+                        Muito bem vindo aventureiro! este é o Character Vault, um lugar para guardar os protagonistas
+                        das suas histórias! Sejam as grandes jornadas cheias de sangue, suor e lágrimas, sejam os
+                        pequenos contos de viajantes cheios de bravata e potencial ou até mesmo aqueles cujo conto
+                        não foi escrito ainda. Aceitamos de tudo!
                     </p>
                 </div>
                 <div className="content">
-                    <p>
-                        <button onClick={() => setOpenModal(true)} className="addButton"></button>
-                    </p>
+                    <button onClick={() => setOpenModal(true)} className="addButton"></button>
                     <Modal isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}></Modal>
+
                 </div>
 
             </div>
