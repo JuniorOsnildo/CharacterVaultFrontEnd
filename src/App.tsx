@@ -1,12 +1,20 @@
+import {useState} from "react";
+
 //stylesheet
 import 'normalize.css'
 import './App.css'
+import './modal.css'
+
+//components
+import Modal from './components/modal.tsx'
 
 //fonts
 import "./font/Tormenta20x.ttf"
 import "./font/DanteMTStd-BoldItalic.otf"
 
+
 function App() {
+  const [openModal, setOpenModal] = useState<boolean>(false)
 
 
   return (
@@ -30,7 +38,10 @@ function App() {
                     </p>
                 </div>
                 <div className="content">
-                    <p>tecto</p>
+                    <p>
+                        <button onClick={() => setOpenModal(true)} className="addButton"></button>
+                    </p>
+                    <Modal isOpen={openModal}></Modal>
                 </div>
 
             </div>

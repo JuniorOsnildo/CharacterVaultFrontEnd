@@ -44,7 +44,17 @@
     color: darkred;
     font-family: TormentMin, serif;
   }
+}
 
+.addButton {
+  width: 180px;
+  height: 180px;
+  background: url(src/assets/butIconB.png) center;
+  background-size: cover;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 a {
