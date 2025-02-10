@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-export default function Modal({isOpen,setModalOpen}: ModalProps) {
+export default function SheetModal({isOpen,setModalOpen}: ModalProps) {
 
     if (isOpen) {
         return (

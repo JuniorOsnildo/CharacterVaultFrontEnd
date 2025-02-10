@@ -6,7 +6,7 @@ import './App.css'
 import './modal.css'
 
 //components
-import Modal from './components/modal.tsx'
+import SheetModal from './components/sheetModal.tsx'
 
 //fonts
 import "./font/Tormenta20x.ttf"
@@ -25,7 +25,8 @@ function App() {
                     Exit
                 </div>
                 <div className="left">
-                    <text> Character Vault</text>
+                    <p>Character Vault</p>
+                    <p className="author-name">Developed by StarvingDevelopers/CrazyT77</p>
                 </div>
             </div>
             <div className="front-page">
@@ -39,7 +40,8 @@ function App() {
                 </div>
                 <div className="content">
                     <button onClick={() => setOpenModal(true)} className="addButton"></button>
-                    <Modal isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}></Modal>
+                    <SheetModal isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}></SheetModal>
+
 
                 </div>
 
