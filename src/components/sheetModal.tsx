@@ -1,6 +1,7 @@
 import useModal from "../hooks/useModal.tsx";
 
-import "../modal.css"
+import "../sheetModal.css"
+import x from "../assets/x.png"
 
 export default function SheetModal() {
 
@@ -8,18 +9,20 @@ export default function SheetModal() {
 
     return (
         <div>
-            <div className="container">
+            <div className="container-sheet">
                 <div className="button-x">
-                    <button onClick={()=> modalManager.closeModal()}></button>
+                    <button onClick={()=> modalManager.closeModal()} className="x"><img src={x} alt="fechar"/> </button>
                 </div>
-                <div className="fields">
-                    <p>nome</p><input type="text"/>
-                    <p>raça</p><input type="text"/>
-                    <p>origem</p><input type="text"/>
-                    <p>classe</p><input type="text"/>
-                    <p>nivel</p><input type="text"/>
-                    <p>hp</p><input type="text"/>
-                    <p>mana</p><input type="text"/>
+                <div className="fields-sheet">
+                    <p>nome:</p><input placeholder="Nome" type="text"/>
+                    <p>raça:</p><input placeholder="Raça" type="text"/>
+                    <p>origem:</p><input placeholder="Origem" type="text"/>
+                    <p>classe:</p><input placeholder="Classe" type="text"/>
+                    <input placeholder="Nivel" type="text"/>
+                    <div>
+                        <input placeholder="Vida" type="text"/>
+                    </div>
+                    <input placeholder="Mana" type="text"/>
                 </div>
             </div>
         </div>

@@ -1,10 +1,11 @@
 //stylesheet
 import 'normalize.css'
 import './App.css'
-import './modal.css'
 
 //components
 import SheetModal from './components/sheetModal.tsx'
+import LoginModal from "./components/loginModal.tsx";
+import SignUpModal from "./components/signUpModal.tsx"
 
 //fonts
 import "./font/Tormenta20x.ttf"
@@ -25,7 +26,10 @@ function App() {
                     <p className="author-name">Developed by StarvingDevelopers/CrazyT77</p>
                 </div>
                 <div className="right">
-                    Exit
+                    <button onClick={() => modalManager.openModal(<LoginModal/>)} className="accountButton"> Log in</button>
+                    |
+                    <button onClick={() => modalManager.openModal(<SignUpModal/>)} className="accountButton"> Sign in</button>
+
                 </div>
             </div>
             <div className="front-wrapper">
