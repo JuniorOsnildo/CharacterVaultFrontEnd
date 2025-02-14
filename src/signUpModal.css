@@ -1,11 +1,12 @@
 .container-signUp {
+
     font-family: TormentMin, serif;
     font-size:150%;
-    width: 20vw;
-    height: 50vh;
     border: 5px solid var(--papyrus-dark);
     border-radius: 10px;
     background-color: var(--papyrus);
+    padding: 5% 0 10%;
+
 }
 
 .fields-signUp {
@@ -13,23 +14,4 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    input{
-        background-color: var(--papyrus-dark);
-        border: none;
-        width: 200px;
-        height: 40px;
-
-    }
-
-    input:focus{
-        outline: none !important;
-        border: 1px solid darkred;
-
-    }
-
-    input::selection{
-        background-color: darkred;
-        color: white;
-    }
 }

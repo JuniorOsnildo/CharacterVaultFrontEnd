@@ -13,6 +13,9 @@ export default function SignUpModal() {
                 <div className="button-x">
                     <button onClick={()=> modalManager.closeModal()} className="x"><img src={x} alt="fechar"/></button>
                 </div>
+                <div className="intro">
+                    Novo por aqui?
+                </div>
                 <div className="fields-signUp">
                     <p>Username</p><input type="text"/>
                     <p>Email</p><input type="email"/>

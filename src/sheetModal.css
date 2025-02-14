@@ -1,8 +1,8 @@
 .container-sheet {
     font-family: TormentMin, serif;
     font-size: 150%;
-    width: 70vw;
-    height: 80vh;
+    min-width: 70vw;
+    min-height: 80vh;
     border: 5px solid var(--papyrus-dark);
     border-radius: 10px;
     background-color: var(--papyrus);
@@ -10,14 +10,57 @@
 
 .fields-sheet{
     display: grid;
-    grid-template-columns: 3fr 3fr;
+    grid-template-columns: 20% 80%;
     padding-left: 10px;
 
-    input{
+    .text-fields-sheet{
         background-color: var(--papyrus-dark);
         border: none;
-        width: 200px;
-        height: 40px;
+
+
+        input {
+            width: 50px;
+            height: 40px;
+        }
+    }
+
+    .int-fields-sheet{
+        display: grid;
+        grid-template-rows: 20% 20% 60%;
+        grid-gap: 10px;
+
+
+        input{
+            height: 100%;
+            text-align: center;
+        }
+    }
+
+    .hp-mp-fields{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-items: center;
+        font-size: 50px;
+
+        input{
+            width: 120px;
+        }
+    }
+
+    .attributes{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr) ;
+        grid-template-rows: 70% 30% ;
+        justify-items: center;
+
+        input{
+            width: 70px;
+            font-size: 35px;
+        }
+       p{
+           margin-top: 0;
+       }
+
     }
 
     input:focus{
@@ -30,4 +73,5 @@
         background-color: darkred;
         color: white;
     }
+
 }

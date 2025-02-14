@@ -13,6 +13,9 @@ export default function LoginModal() {
                 <div className="button-x">
                     <button onClick={()=> modalManager.closeModal()} className="x"><img src={x} alt="fechar"/></button>
                 </div>
+                <div className="intro">
+                    Bem vindo de volta!
+                </div>
                 <div className="fields-login">
                     <p>Email</p><input type="email"/>
                     <p>Password</p><input type="password"/>

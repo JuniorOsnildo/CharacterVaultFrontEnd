@@ -37,10 +37,11 @@ function App() {
                     <div className="intro">
                         <p>
                             Muito bem vindo aventureiro! este é o Character Vault, um lugar para guardar os protagonistas
-                            das suas histórias! Sejam as grandes jornadas cheias de sangue, suor e lágrimas, sejam os
-                            pequenos contos de viajantes cheios de bravata e potencial ou até mesmo aqueles cujo conto
+                            das suas histórias! Sejam as grandes jornadas cheias de sangue, suor e lágrimas, sejam as
+                            as canções de viajantes cheios de bravata e potencial ou até mesmo aqueles cujo conto
                             não foi escrito ainda. Aceitamos de tudo!
                         </p>
+
                     </div>
                     <div className="content">
                         <button onClick={() => modalManager.openModal(<SheetModal/>)} className="addButton"></button>
