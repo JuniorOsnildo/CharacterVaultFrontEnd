@@ -1,7 +1,7 @@
-import useModal from "../hooks/useModal.tsx";
+import useModal from "../../hooks/useModal.tsx";
 
-import "../sheetModal.css"
-import x from "../assets/x.png"
+import "./sheetModal.css"
+import x from "../../assets/x.png"
 
 export default function SheetModal() {
 

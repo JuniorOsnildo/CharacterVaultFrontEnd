@@ -1,7 +1,7 @@
-import useModal from "../hooks/useModal.tsx";
+import useModal from "../../hooks/useModal.tsx";
 
-import "../loginModal.css"
-import x from "../assets/x.png"
+import "./accountModal.css"
+import x from "../../assets/x.png"
 
 export default function LoginModal() {
 
@@ -9,17 +9,21 @@ export default function LoginModal() {
 
     return (
         <div>
-            <div className="container-login">
+            <div className="container-account">
                 <div className="button-x">
                     <button onClick={()=> modalManager.closeModal()} className="x"><img src={x} alt="fechar"/></button>
                 </div>
                 <div className="intro">
                     Bem vindo de volta!
                 </div>
-                <div className="fields-login">
-                    <p>Email</p><input type="email"/>
-                    <p>Password</p><input type="password"/>
+                <div className="fields-account">
+                    <label>Email</label> <input type="email"/>
+                    <label>Senha</label><input type="password"/>
+                    <div>
+                        <button>Enviar</button>
+                    </div>
                 </div>
+
             </div>
         </div>
     )

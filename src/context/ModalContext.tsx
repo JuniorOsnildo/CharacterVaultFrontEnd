@@ -1,7 +1,7 @@
 import {ReactNode, useState} from "react";
 import * as React from "react";
 
-import "../modalContext.css"
+import "./modalContext.css"
 
 interface ModalContextProps {
     modal: ReactNode

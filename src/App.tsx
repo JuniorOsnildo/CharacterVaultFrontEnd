@@ -3,9 +3,9 @@ import 'normalize.css'
 import './App.css'
 
 //components
-import SheetModal from './components/sheetModal.tsx'
-import LoginModal from "./components/loginModal.tsx";
-import SignUpModal from "./components/signUpModal.tsx"
+import SheetModal from './components/sheetModal/sheetModal.tsx'
+import LoginModal from "./components/loginModal/loginModal.tsx";
+import SignUpModal from "./components/loginModal/signUpModal.tsx"
 
 //fonts
 import "./font/Tormenta20x.ttf"
@@ -34,7 +34,7 @@ function App() {
             </div>
             <div className="front-wrapper">
                 <div className="front-page">
-                    <div className="intro">
+                    <div className="greeting">
                         <p>
                             Muito bem vindo aventureiro! este é o Character Vault, um lugar para guardar os protagonistas
                             das suas histórias! Sejam as grandes jornadas cheias de sangue, suor e lágrimas, sejam as

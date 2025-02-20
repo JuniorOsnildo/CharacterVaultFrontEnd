@@ -1,0 +1,39 @@
+.container-account {
+    font-family: TormentMin, serif;
+    font-size:150%;
+    border: 5px solid var(--papyrus-dark);
+    border-radius: 10px;
+    background-color: var(--papyrus);
+    padding: 0 0 10%;
+
+}
+
+.fields-account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    label{
+        margin-top: 10%;
+    }
+
+    button{
+        margin-top: 30%;
+        border: none;
+        background-color: var(--papyrus-dark);
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: darkred;
+    }
+
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Torment", serif;
+    color: darkred;
+}
