@@ -21,6 +21,7 @@
     button{
         margin-top: 30%;
         border: none;
+        border-radius: 3px;
         background-color: var(--papyrus-dark);
         cursor: pointer;
     }

@@ -15,11 +15,12 @@ export default function SheetModal() {
                 </div>
                 <div className="fields-sheet">
                     <div className="text-fields-sheet">
-                        <p>nome:</p><input placeholder="Nome" type="text"/>
-                        <p>raça:</p><input placeholder="Raça" type="text"/>
-                        <p>origem:</p><input placeholder="Origem" type="text"/>
-                        <p>classe:</p><input placeholder="Classe" type="text"/>
+                        <label>Nome</label>
+                        <input placeholder="Rell Oniyama" type="text"/>
                         <input placeholder="Nivel" type="text"/>
+                        <label>Classe</label><input placeholder="Bardo" type="text"/>
+                        <label>Raça</label><input placeholder="Medusa" type="text"/>
+                        <label>Origem</label><input placeholder="Escravo" type="text"/>
                     </div>
 
                     <div className="int-fields-sheet">
@@ -35,7 +36,8 @@ export default function SheetModal() {
                             <input type="text" maxLength={2}/>
                             <input type="text" maxLength={2}/>
                             <input type="text" maxLength={2}/>
-                            <p>FOR</p><p>DES</p><p>CON</p><p>INT</p><p>SAB</p><p>CAR</p>
+                            <label>FOR</label><label>DES</label><label>CON</label>
+                            <label>INT</label><label>SAB</label><label>CAR</label>
                         </div>
                     </div>
 
