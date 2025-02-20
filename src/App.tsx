@@ -4,8 +4,8 @@ import './App.css'
 
 //components
 import SheetModal from './components/sheetModal/sheetModal.tsx'
-import LoginModal from "./components/loginModal/loginModal.tsx";
-import SignUpModal from "./components/loginModal/signUpModal.tsx"
+import LoginModal from "./components/accountModal/loginModal.tsx";
+import SignUpModal from "./components/accountModal/signUpModal.tsx"
 
 //fonts
 import "./font/Tormenta20x.ttf"
