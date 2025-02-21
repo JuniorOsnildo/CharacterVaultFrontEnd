@@ -12,7 +12,6 @@ import "./font/Tormenta20x.ttf"
 import "./font/DanteMTStd-BoldItalic.otf"
 import useModal from "./hooks/useModal.tsx";
 
-
 function App() {
   const modalManager = useModal();
 
@@ -25,7 +24,11 @@ function App() {
                     <p>Character Vault</p>
                     <p className="author-name">Developed by StarvingDevelopers/CrazyT77</p>
                 </div>
+
+
+
                 <div className="right">
+
                     <button onClick={() => modalManager.openModal(<LoginModal/>)} className="accountButton"> Log in</button>
                     |
                     <button onClick={() => modalManager.openModal(<SignUpModal/>)} className="accountButton"> Sign in</button>

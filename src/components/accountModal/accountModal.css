@@ -38,3 +38,9 @@
     font-family: "Torment", serif;
     color: darkred;
 }
+
+.error-login {
+    margin-top: 5%;
+    color: red;
+    line-break: strict;
+}
