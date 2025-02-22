@@ -78,3 +78,24 @@
     }
 
 }
+
+.save{
+    display: flex;
+    margin-top: 10%;
+    margin-left: 10px;
+
+    button{
+        border: none;
+        border-radius: 3px;
+        background-color: var(--papyrus-dark);
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: darkred;
+    }
+
+    .error-sheet{
+        margin-left: 25px;
+        color: red;
+    }
+}

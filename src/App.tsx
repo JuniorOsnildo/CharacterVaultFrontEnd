@@ -3,7 +3,7 @@ import 'normalize.css'
 import './App.css'
 
 //components
-import SheetModal from './components/sheetModal/sheetModal.tsx'
+import NewSheetModal from './components/sheetModal/newSheetModal.tsx'
 import LoginModal from "./components/accountModal/loginModal.tsx";
 import SignUpModal from "./components/accountModal/signUpModal.tsx"
 
@@ -47,7 +47,7 @@ function App() {
 
                     </div>
                     <div className="content">
-                        <button onClick={() => modalManager.openModal(<SheetModal/>)} className="addButton"></button>
+                        <button onClick={() => modalManager.openModal(<NewSheetModal/>)} className="addButton"></button>
 
                     </div>
 

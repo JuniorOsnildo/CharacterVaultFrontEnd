@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import useModal from "../../hooks/useModal.tsx";
 
 import axios from "axios";
-
 import api from "../../Services/api.tsx"
 
 import "./accountModal.css"
@@ -26,9 +25,11 @@ export default function LoginModal() {
                 password: password,
             })
 
-            const token = response.data;
-            console.log(token);
+            const token = response.data.token;
+            const userId = response.data.userId;
+
             localStorage.setItem("token", token);
+            localStorage.setItem("userId", userId);
 
             modalManager.closeModal();
         }
