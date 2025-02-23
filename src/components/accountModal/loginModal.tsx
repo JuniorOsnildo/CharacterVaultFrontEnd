@@ -31,7 +31,7 @@ export default function LoginModal() {
             localStorage.setItem("token", token);
             localStorage.setItem("userId", userId);
 
-            modalManager.closeModal();
+            window.location.reload();
         }
         catch (error) {
             if (axios.isAxiosError(error)) {

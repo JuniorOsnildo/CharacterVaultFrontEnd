@@ -49,11 +49,16 @@ export default function NewSheetModal() {
                 userId: eUserId
             })
 
-            modalManager.closeModal();
+            window.location.reload();
         }
         catch (error) {
             if(axios.isAxiosError(error)) {
-                setError(error.response?.data.massage || "Não foi possivel salvar a ficha!");
+                if (eUserId == null) {
+                    setError(error.response?.data.massage || "É necessário ter uma conta para criar uma ficha");
+                } else{
+                    setError(error.response?.data.massage || "Não foi possível salvar a ficha!");
+                }
+
             } else {
                 setError("Um erro inesperado ocorreu");
             }

@@ -7,14 +7,15 @@ import './App.css'
 
 //components
 import NewSheetModal from './components/sheetModal/newSheetModal.tsx'
-import LoginModal from "./components/accountModal/loginModal.tsx";
-import SignUpModal from "./components/accountModal/signUpModal.tsx"
+//import LoginModal from "./components/accountModal/loginModal.tsx";
+//import SignUpModal from "./components/accountModal/signUpModal.tsx"
 import SheetModal from "./components/sheetModal/sheetModal.tsx";
+import useModal from "./hooks/useModal.tsx";
+import verifyLoginState from "./hooks/verifyLoginState.tsx";
 
 //fonts
 import "./font/Tormenta20x.ttf"
 import "./font/DanteMTStd-BoldItalic.otf"
-import useModal from "./hooks/useModal.tsx";
 
 //models
 import {Sheet} from "./models/Sheet.ts";
@@ -51,15 +52,7 @@ function App() {
                     <p className="author-name">Developed by StarvingDevelopers/CrazyT77</p>
                 </div>
                 <div className="right">
-                    <button
-                        onClick={() => modalManager.openModal(<LoginModal/>)}
-                        className="accountButton"> Log in
-                    </button>
-                    |
-                    <button
-                        onClick={() => modalManager.openModal(<SignUpModal/>)}
-                        className="accountButton"> Sign in
-                    </button>
+                    { verifyLoginState() }
 
                 </div>
             </div>

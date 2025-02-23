@@ -26,7 +26,7 @@ export default function SignUpModal() {
                 password: password,
                 email: email
             });
-            modalManager.closeModal();
+            window.location.reload();
         }
         catch (error) {
             if (axios.isAxiosError(error)) {
