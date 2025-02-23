@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, {JSX, useState} from "react"
 
 import useModal from "../../hooks/useModal.tsx";
 
@@ -8,7 +8,13 @@ import api from "../../Services/api.tsx"
 import "./sheetModal.css"
 import x from "../../assets/x.png"
 
-export default function NewSheetModal() {
+import {Sheet} from "../../models/Sheet.ts";
+
+interface Props { sheet : Sheet}
+
+export default function SheetModal({ sheet }: Props): JSX.Element {
+
+    const modalManager = useModal();
 
     const [name, setName] = useState("");
     const [level, setLevel] = useState("");
@@ -26,13 +32,11 @@ export default function NewSheetModal() {
     const [error, setError] = useState("");
     const eUserId = localStorage.getItem("userId");
 
-    const modalManager = useModal();
-
     const handleCharge = async (e: React.FormEvent) => {
         e.preventDefault();
 
         try {
-            await api.post("/Sheet/sheets", {
+            await api.post("/Sheet/update", {
                 name: name || null,
                 level: level || null,
                 class: charClass || null,
@@ -46,7 +50,8 @@ export default function NewSheetModal() {
                 intelligence: intelligence || null,
                 wisdom: wisdom || null,
                 charisma: charisma || null,
-                userId: eUserId
+                userId: eUserId,
+                sheetId: sheet.id
             })
 
             modalManager.closeModal();
@@ -72,34 +77,34 @@ export default function NewSheetModal() {
                         <input
                             placeholder="Rell Oniyama"
                             type="text"
-                            value={name}
+                            value={sheet.name}
                             onChange={(e) => setName(e.target.value)}
                         />
                         <input
                             placeholder="Nivel"
                             type="text"
-                            value={level}
+                            value={sheet.level}
                             onChange={(e) => setLevel(e.target.value)}
                         />
                         <label>Classe</label>
                         <input
                             placeholder="Bardo"
                             type="text"
-                            value={charClass}
+                            value={sheet.class}
                             onChange={(e) => setCharClass(e.target.value)}
                         />
                         <label>Raça</label>
                         <input
                             placeholder="Medusa"
                             type="text"
-                            value={race}
+                            value={sheet.race}
                             onChange={(e) => setRace(e.target.value)}
                         />
                         <label>Origem</label>
                         <input
                             placeholder="Escravo"
                             type="text"
-                            value={origin}
+                            value={sheet.origin}
                             onChange={(e) => setOrigin(e.target.value)}
                         />
                     </div>
@@ -110,14 +115,14 @@ export default function NewSheetModal() {
                                 placeholder="Vida"
                                 type="text"
                                 maxLength={3}
-                                value={hp}
+                                value={sheet.hp}
                                 onChange={(e) => setHp(e.target.value)}
                             />
                             <input
                                 placeholder="Mana"
                                 type="text"
                                 maxLength={3}
-                                value={mp}
+                                value={sheet.mp}
                                 onChange={(e) => setMP(e.target.value)}
                             />
                         </div>
@@ -126,37 +131,37 @@ export default function NewSheetModal() {
                             <input
                                 type="text"
                                 maxLength={2}
-                                value={strength}
+                                value={sheet.strength}
                                 onChange={(e) => setStrength(e.target.value)}
                             />
                             <input
                                 type="text"
                                 maxLength={2}
-                                value={dexterity}
+                                value={sheet.dexterity}
                                 onChange={(e) => setDexterity(e.target.value)}
                             />
                             <input
                                 type="text"
                                 maxLength={2}
-                                value={constitution}
+                                value={sheet.constitution}
                                 onChange={(e) => setConstitution(e.target.value)}
                             />
                             <input
                                 type="text"
                                 maxLength={2}
-                                value={intelligence}
+                                value={sheet.intelligence}
                                 onChange={(e) => setIntelligence(e.target.value)}
                             />
                             <input
                                 type="text"
                                 maxLength={2}
-                                value={wisdom}
+                                value={sheet.wisdom}
                                 onChange={(e) => setWisdom(e.target.value)}
                             />
                             <input
                                 type="text"
                                 maxLength={2}
-                                value={charisma}
+                                value={sheet.charisma}
                                 onChange={(e) => setCharisma(e.target.value)}
                             />
                             <label>FOR</label><label>DES</label><label>CON</label>

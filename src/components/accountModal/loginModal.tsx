@@ -70,7 +70,7 @@ export default function LoginModal() {
                     {error && <div className="error-login">{error}</div>}
 
                     <div>
-                        <button type="submit" onClick={handleLogin}>Enviar</button>
+                        <button accessKey="enter" type="submit" onClick={handleLogin}>Enviar</button>
                     </div>
                 </div>
 

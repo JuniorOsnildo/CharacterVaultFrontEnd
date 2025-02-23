@@ -1,3 +1,6 @@
+import {useState, useEffect} from "react";
+import api from "./Services/api.tsx"
+
 //stylesheet
 import 'normalize.css'
 import './App.css'
@@ -6,14 +9,37 @@ import './App.css'
 import NewSheetModal from './components/sheetModal/newSheetModal.tsx'
 import LoginModal from "./components/accountModal/loginModal.tsx";
 import SignUpModal from "./components/accountModal/signUpModal.tsx"
+import SheetModal from "./components/sheetModal/sheetModal.tsx";
 
 //fonts
 import "./font/Tormenta20x.ttf"
 import "./font/DanteMTStd-BoldItalic.otf"
 import useModal from "./hooks/useModal.tsx";
 
+//models
+import {Sheet} from "./models/Sheet.ts";
+
+
+
 function App() {
   const modalManager = useModal();
+  const eUserId = localStorage.getItem("userId");
+  const [sheets, setSheet] = useState<Sheet[]>([])
+
+
+  useEffect(() => {
+    try {
+        api.post("/Sheet/getAll", {
+            userId: eUserId
+        }).then((response) => {
+            setSheet(response.data);
+        })
+        console.log(sheets);
+    }
+    catch (e) {
+        console.log(e)
+    }
+  }, [])
 
 
   return (
@@ -24,14 +50,16 @@ function App() {
                     <p>Character Vault</p>
                     <p className="author-name">Developed by StarvingDevelopers/CrazyT77</p>
                 </div>
-
-
-
                 <div className="right">
-
-                    <button onClick={() => modalManager.openModal(<LoginModal/>)} className="accountButton"> Log in</button>
+                    <button
+                        onClick={() => modalManager.openModal(<LoginModal/>)}
+                        className="accountButton"> Log in
+                    </button>
                     |
-                    <button onClick={() => modalManager.openModal(<SignUpModal/>)} className="accountButton"> Sign in</button>
+                    <button
+                        onClick={() => modalManager.openModal(<SignUpModal/>)}
+                        className="accountButton"> Sign in
+                    </button>
 
                 </div>
             </div>
@@ -47,10 +75,19 @@ function App() {
 
                     </div>
                     <div className="content">
-                        <button onClick={() => modalManager.openModal(<NewSheetModal/>)} className="addButton"></button>
+                        <button
+                            onClick={() => modalManager.openModal(<NewSheetModal/>)}
+                            className="addButton">
+                        </button>
+
+                        {sheets.map((sheet: Sheet) => (
+                            <button key={sheet.id}
+                                onClick={() => modalManager.openModal(<SheetModal sheet={sheet}/>)}
+                                className="sheetButton">
+                            </button>
+                        ))}
 
                     </div>
-
                 </div>
 
             </div>
