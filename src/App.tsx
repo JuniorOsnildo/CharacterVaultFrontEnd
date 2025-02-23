@@ -75,16 +75,23 @@ function App() {
 
                     </div>
                     <div className="content">
-                        <button
-                            onClick={() => modalManager.openModal(<NewSheetModal/>)}
-                            className="addButton">
-                        </button>
+                        <div className="addButton">
+                            <button
+                                onClick={() => modalManager.openModal(<NewSheetModal/>)}>
+                            </button>
+                            <label>Nova ficha</label>
+                        </div>
 
                         {sheets.map((sheet: Sheet) => (
-                            <button key={sheet.id}
-                                onClick={() => modalManager.openModal(<SheetModal sheet={sheet}/>)}
-                                className="sheetButton">
-                            </button>
+                            <div className={"sheetButton"}>
+                                <button key={sheet.id}
+                                        onClick={() => modalManager.openModal(<SheetModal sheet={sheet}/>)}>
+                                </button>
+                                <label key={sheet.id}>
+                                    {sheet.name}
+                                </label>
+
+                            </div>
                         ))}
 
                     </div>

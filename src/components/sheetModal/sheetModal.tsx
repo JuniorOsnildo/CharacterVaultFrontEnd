@@ -15,50 +15,19 @@ interface Props { sheet : Sheet}
 export default function SheetModal({ sheet }: Props): JSX.Element {
 
     const modalManager = useModal();
-
-    const [name, setName] = useState("");
-    const [level, setLevel] = useState("");
-    const [charClass, setCharClass] = useState("");
-    const [race, setRace] = useState("");
-    const [origin, setOrigin] = useState("");
-    const [hp, setHp] = useState("");
-    const [mp, setMP] = useState("");
-    const [strength, setStrength] = useState("");
-    const [dexterity, setDexterity] = useState("");
-    const [constitution, setConstitution] = useState("");
-    const [intelligence, setIntelligence] = useState("");
-    const [wisdom, setWisdom] = useState("");
-    const [charisma, setCharisma] = useState("");
     const [error, setError] = useState("");
-    const eUserId = localStorage.getItem("userId");
+    //const eUserId = localStorage.getItem("userId");
 
     const handleCharge = async (e: React.FormEvent) => {
         e.preventDefault();
 
         try {
-            await api.post("/Sheet/update", {
-                name: name || null,
-                level: level || null,
-                class: charClass || null,
-                race: race || null,
-                origin: origin || null,
-                hp: hp || null,
-                mp: mp || null,
-                strength: strength || null,
-                dexterity: dexterity || null,
-                constitution: constitution || null,
-                intelligence: intelligence || null,
-                wisdom: wisdom || null,
-                charisma: charisma || null,
-                userId: eUserId,
-                sheetId: sheet.id
-            })
-
-            modalManager.closeModal();
+            await api.delete(`/Sheet/delete/${sheet.id}`);
+            window.location.reload();
         }
         catch (error) {
             if(axios.isAxiosError(error)) {
-                setError(error.response?.data.massage || "Não foi possivel salvar a ficha!");
+                setError(error.response?.data.massage || "Não foi possivel deletar a ficha!");
             } else {
                 setError("Um erro inesperado ocorreu");
             }
@@ -78,34 +47,29 @@ export default function SheetModal({ sheet }: Props): JSX.Element {
                             placeholder="Rell Oniyama"
                             type="text"
                             value={sheet.name}
-                            onChange={(e) => setName(e.target.value)}
                         />
                         <input
                             placeholder="Nivel"
                             type="text"
                             value={sheet.level}
-                            onChange={(e) => setLevel(e.target.value)}
                         />
                         <label>Classe</label>
                         <input
                             placeholder="Bardo"
                             type="text"
                             value={sheet.class}
-                            onChange={(e) => setCharClass(e.target.value)}
                         />
                         <label>Raça</label>
                         <input
                             placeholder="Medusa"
                             type="text"
                             value={sheet.race}
-                            onChange={(e) => setRace(e.target.value)}
                         />
                         <label>Origem</label>
                         <input
                             placeholder="Escravo"
                             type="text"
                             value={sheet.origin}
-                            onChange={(e) => setOrigin(e.target.value)}
                         />
                     </div>
 
@@ -116,14 +80,12 @@ export default function SheetModal({ sheet }: Props): JSX.Element {
                                 type="text"
                                 maxLength={3}
                                 value={sheet.hp}
-                                onChange={(e) => setHp(e.target.value)}
                             />
                             <input
                                 placeholder="Mana"
                                 type="text"
                                 maxLength={3}
                                 value={sheet.mp}
-                                onChange={(e) => setMP(e.target.value)}
                             />
                         </div>
 
@@ -132,37 +94,31 @@ export default function SheetModal({ sheet }: Props): JSX.Element {
                                 type="text"
                                 maxLength={2}
                                 value={sheet.strength}
-                                onChange={(e) => setStrength(e.target.value)}
                             />
                             <input
                                 type="text"
                                 maxLength={2}
                                 value={sheet.dexterity}
-                                onChange={(e) => setDexterity(e.target.value)}
                             />
                             <input
                                 type="text"
                                 maxLength={2}
                                 value={sheet.constitution}
-                                onChange={(e) => setConstitution(e.target.value)}
                             />
                             <input
                                 type="text"
                                 maxLength={2}
                                 value={sheet.intelligence}
-                                onChange={(e) => setIntelligence(e.target.value)}
                             />
                             <input
                                 type="text"
                                 maxLength={2}
                                 value={sheet.wisdom}
-                                onChange={(e) => setWisdom(e.target.value)}
                             />
                             <input
                                 type="text"
                                 maxLength={2}
                                 value={sheet.charisma}
-                                onChange={(e) => setCharisma(e.target.value)}
                             />
                             <label>FOR</label><label>DES</label><label>CON</label>
                             <label>INT</label><label>SAB</label><label>CAR</label>
@@ -171,7 +127,7 @@ export default function SheetModal({ sheet }: Props): JSX.Element {
                 </div>
                 <div className="save-wrapper">
                     <div className="save">
-                        <button type="submit" onClick={handleCharge}>Salvar</button>
+                        <button type="submit" onClick={handleCharge}>Excluir</button>
                         {error && <div className="error-sheet">{error}</div>}
                     </div>
                 </div>

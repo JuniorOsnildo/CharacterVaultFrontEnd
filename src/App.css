@@ -72,19 +72,57 @@
     font-size: 25px;
     font-family: TormentMin, serif;
   }
-  .content{}
 
 }
 
-.addButton {
-  width: 180px;
-  height: 180px;
-  background: url(src/assets/butIconB.png) center;
-  background-size: cover;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+.content {
+  display: flex;
+  flex-direction: row;
+
+  .addButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button{
+      width: 150px;
+      height: 150px;
+      background: url(src/assets/butIconB.png) center;
+      background-size: cover;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    label{
+      font-family: TormentMin, serif;
+    }
+
+  }
+  .sheetButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+
+    button{
+      width: 150px;
+      height: 150px;
+      background: url(src/assets/default-hero-icon.png) center;
+      background-size: cover;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    label{
+      font-family: TormentMin, serif;
+    }
+
+  }
+
 }
 
 .accountButton {
@@ -92,17 +130,6 @@
   background:transparent;
   border: none;
   color: var(--papyrus-dark);
-}
-
-.sheetButton {
-  width: 150px;
-  height: 150px;
-  background: url(src/assets/default-hero-icon.png) center;
-  background-size: cover;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
 }
 
 a {
