@@ -1,18 +1,58 @@
 import React, {JSX, useState} from "react"
-
 import useModal from "../../hooks/useModal.tsx";
-
 import axios from "axios";
 import api from "../../Services/api.tsx"
-
 import "./sheetModal.css"
 import x from "../../assets/x.png"
-
+import { PDFDocument } from 'pdf-lib';
+import download from 'downloadjs';
 import {Sheet} from "../../models/Sheet.ts";
 
 interface Props { sheet : Sheet}
 
 export default function SheetModal({ sheet }: Props): JSX.Element {
+
+
+    async function fillPDF(sheet: Sheet) {
+        const pdfBytes = await fetch('src/assets/ficha t20.pdf').then(res => res.arrayBuffer());
+
+        // Carrega o documento PDF
+        const pdfDoc = await PDFDocument.load(pdfBytes);
+
+        // Obtém o formulário do PDF
+        const form = pdfDoc.getForm();
+
+        // Preenche os campos do PDF com os dados da ficha
+        form.getTextField('NOME DO PERSONAGEM').setText(sheet.name);
+        form.getTextField('Lv').setText(sheet.level.toString());
+        form.getTextField('CLASSE').setText(sheet.class);
+        form.getTextField('RAÇA').setText(sheet.race);
+        form.getTextField('ORIGEM').setText(sheet.origin);
+        form.getTextField('PVs Totais').setText(sheet.hp.toString());
+        form.getTextField('PMs Totais').setText(sheet.mp.toString());
+        form.getTextField('PVs Atuais').setText(sheet.hp.toString());
+        form.getTextField('PMs Atuais').setText(sheet.mp.toString());
+        form.getTextField('For').setText(sheet.strength.toString());
+        form.getTextField('Des').setText(sheet.dexterity.toString());
+        form.getTextField('Con').setText(sheet.constitution.toString());
+        form.getTextField('Int').setText(sheet.intelligence.toString());
+        form.getTextField('Sab').setText(sheet.wisdom.toString());
+        form.getTextField('Car').setText(sheet.charisma.toString());
+
+        // Salva o PDF modificado
+        const modifiedPdfBytes = await pdfDoc.save();
+
+        // Faz o download do PDF
+        download(modifiedPdfBytes, `ficha_${sheet.name}.pdf`, 'application/pdf');
+    }
+
+    const handleDownloadPDF = async () => {
+        try {
+            await fillPDF(sheet);
+        } catch (error) {
+            console.error('Erro ao gerar o PDF:', error);
+        }
+    };
 
     const modalManager = useModal();
     const [error, setError] = useState("");
@@ -127,6 +167,7 @@ export default function SheetModal({ sheet }: Props): JSX.Element {
                 </div>
                 <div className="save-wrapper">
                     <div className="save">
+                        <button type="button" onClick={handleDownloadPDF}>Baixar PDF</button>
                         <button type="submit" onClick={handleCharge}>Excluir</button>
                         {error && <div className="error-sheet">{error}</div>}
                     </div>

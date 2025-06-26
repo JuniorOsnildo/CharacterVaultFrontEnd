@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://backendvault.starvingdevelopers.tech/",
+    //baseURL: "https://backendvault.starvingdevelopers.tech/",
+    baseURL: "http://localhost:5164",
 });
 
 api.interceptors.request.use(
